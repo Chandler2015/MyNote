@@ -1,9 +1,10 @@
 import React, {useEffect,useState} from 'react'
 import {
-    useParams
+    useParams, Link
   } from "react-router-dom";
+// import right from '../assets/right.svg'
 
-const NoteListPage = ({match}) => {
+const NoteListPage = () => {
 
     //const is variable never be reassigned, let is something can be reassigned
     const {id} = useParams() 
@@ -21,8 +22,16 @@ const NoteListPage = ({match}) => {
     } 
     
     return (
-        <div>
-            <p>{note?.body}</p>
+        <div className = "note">
+            <div className = "note-header">
+                <h3>
+                    <Link to = "/">
+                         <img src={require('../assets/leftarrow.svg').default} alt='leftarrow' />
+                    </Link>
+                </h3>
+            
+            </div>
+            <textarea defaultValue={note?.body}></textarea>
         </div>
     )
 }
