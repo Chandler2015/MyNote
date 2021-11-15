@@ -1,5 +1,6 @@
 import React , {useEffect, useState} from 'react'
 import ListItem from '../components/ListItem'
+import Add from '../components/Add'
 
 const NotesListPage = () => {
     //init the notes = [], use setNotes to update the notes 
@@ -11,7 +12,7 @@ const NotesListPage = () => {
     }, []) 
 
     let getNotes = async () => {
-        console.log("testing the react log")
+      
         let response = await fetch('/api/notes/')
         let data = await response.json()
         
@@ -31,6 +32,8 @@ const NotesListPage = () => {
                 ))
                 }
             </div>
+
+            <Add />
         </div>
     )
 }
